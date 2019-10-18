@@ -1,0 +1,5 @@
+export const GET_STORIES = 'GET_STORIES';
+export const SET_STORIES = 'SET_STORIES';
+
+export const GET_CATEGORIES = 'GET_CATEGORIES';
+export const SET_CATEGORIES = 'SET_CATEGORIES';
