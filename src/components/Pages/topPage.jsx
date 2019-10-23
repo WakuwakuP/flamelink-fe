@@ -56,7 +56,7 @@ class topPage extends React.Component {
             this.props.sortedStories.map(
               (story, index) => {
                 return (
-                  <Story key={index} story={story} width="33%" />
+                  <Story key={index} story={story} width="33.333%" />
                 );
               }
             )

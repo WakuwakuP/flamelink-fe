@@ -9,10 +9,6 @@
     ],
     "rewrites": [
       {
-        "source": "/event/detail/*",
-        "function": "event"
-      },
-      {
         "source": "**",
         "destination": "/index.html"
       }

@@ -25,16 +25,16 @@ class storyPage extends React.Component {
   render() {
     return (
       <div>
-        {
-          this.props.story.thumbnail[0].url !== '' ?
-            <img
-              className="thumbnail"
-              src={this.props.story.thumbnail[0].url}
-              alt={this.props.story.title !== '' ? this.props.story.title : ''}
-            /> :
-            ''
-        }
         <Container fixed>
+          {
+            this.props.story.thumbnail[0].url !== '' ?
+              <img
+                className="thumbnail"
+                src={this.props.story.thumbnail[0].url}
+                alt={this.props.story.title !== '' ? this.props.story.title : ''}
+              /> :
+              ''
+          }
           {
             this.props.story.title !== '' ?
               <h1 className="title">{this.props.story.title}</h1> :
