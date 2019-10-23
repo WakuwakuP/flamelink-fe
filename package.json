@@ -13,14 +13,14 @@
     "react-display-switch": "^0.4.3",
     "react-dom": "^16.8.6",
     "react-easy-crop": "^1.13.0",
+    "react-markdown": "^4.2.2",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.0.2",
-    "redux-saga-firebase": "^0.15.0",
-    "redux-thunk": "^2.3.0"
+    "redux-saga-firebase": "^0.15.0"
   },
   "scripts": {
     "start": "react-scripts start",

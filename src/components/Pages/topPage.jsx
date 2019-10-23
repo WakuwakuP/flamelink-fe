@@ -2,34 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import Actions from '../../actions';
-
-import Card from '../Commons/Card';
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
-  },
-  gridList: {
-    width: 500,
-    height: 450,
-  },
-  icon: {
-    color: 'rgba(255, 255, 255, 0.54)',
-  },
-}));
+import { When } from 'react-display-switch';
+import Story from '../Commons/Story';
 
 class topPage extends React.Component {
-  constructor(props) {
-    super(props);
-    classes = useStyles();
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
   // componentの初期化時
   componentDidMount() {
-    this.props.actions.getStories();
   }
 
   // componentを離れる時
@@ -38,17 +19,49 @@ class topPage extends React.Component {
 
   render() {
     return (
-      <div className={classes.root}>
-        <GridList cellHeight={180} className={classes.gridList}>
-          <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-            <ListSubheader component="div">December</ListSubheader>
-          </GridListTile>
+      <div
+        style={
           {
-            Object.keys(this.props.stories).forEach((key) => {
-              <Card blog={this.props.stories[key]} />
-            })
+            display: 'flex',
+            flexWrap: 'wrap',
+            paddingTop: 15,
+            paddingLeft: 15,
           }
-        </GridList>
+        }
+      >
+        <When screen_xs>
+          {
+            this.props.sortedStories.map(
+              (story, index) => {
+                return (
+                  <Story key={index} story={story} width="100%" />
+                );
+              }
+            )
+          }
+        </When>
+        <When screen_md>
+          {
+            this.props.sortedStories.map(
+              (story, index) => {
+                return (
+                  <Story key={index} story={story} width="50%" />
+                );
+              }
+            )
+          }
+        </When>
+        <When screen_lg>
+          {
+            this.props.sortedStories.map(
+              (story, index) => {
+                return (
+                  <Story key={index} story={story} width="33%" />
+                );
+              }
+            )
+          }
+        </When>
       </div>
     );
   }
@@ -56,7 +69,7 @@ class topPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    stories: state.data.stories,
+    sortedStories: state.data.sortedStories,
   };
 };
 

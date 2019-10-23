@@ -10,6 +10,15 @@ function setStories(stories) {
   }
 }
 
+function setSortedStories(sortedStories) {
+  return {
+    type: types.DATA.SET_SORTED_STORIES,
+    payload: {
+      sortedStories
+    },
+  }
+}
+
 // ストーリーのリストを取得する
 function getStories() {
   return {
@@ -17,7 +26,19 @@ function getStories() {
   }
 }
 
+// 表示するストーリーをセットする。
+function setStory(storyId) {
+  return {
+    type: types.DATA.SET_STORY,
+    payload: {
+      storyId,
+    },
+  }
+}
+
 export default {
   getStories,
+  setSortedStories,
   setStories,
+  setStory,
 }

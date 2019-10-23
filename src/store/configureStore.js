@@ -17,6 +17,6 @@ export default function configureStore(initialState = {}) {
   }
 
   sagaMiddleware.run(mySaga);
-  console.log(store.getState());
+  // console.log(store.getState());
   return store;
 }

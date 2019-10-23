@@ -11,13 +11,13 @@ import NavBar from './components/Commons/NavBar';
 import topPage from './components/Pages/topPage';
 import storyPage from './components/Pages/storyPage';
 
-When.case('screen_xs', () => window.innerWidth < 768);
-When.case('screen_md', () => !When.screen_xs && window.innerWidth < 992);
-When.case('screen_lg', () => window.innerWidth >= 992);
+When.case('screen_xs', () => window.innerWidth <= 480);
+When.case('screen_md', () => window.innerWidth > 480 && window.innerWidth <= 1024);
+When.case('screen_lg', () => window.innerWidth > 1024);
 
 class App extends Component {
   componentDidMount() {
-    this.props.actions.first();
+    this.props.actions.getStories();
   }
 
   render() {
@@ -28,7 +28,7 @@ class App extends Component {
         </div>
         <Switch>
           <Route exact path='/' component={topPage} />
-          <Route exact path='/story' component={storyPage} />
+          <Route exact path='/story/:year/:month/:day/:id' component={storyPage} />
           <Route exact component={topPage} />
         </Switch>
       </BrowserRouter>

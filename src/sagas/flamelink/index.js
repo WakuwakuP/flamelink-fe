@@ -1,9 +1,9 @@
-import { all, fork, take, takeEvery, put, select } from '@redux-saga/core/effects';
+// import { all, fork, take, takeEvery, put, select } from '@redux-saga/core/effects';
 
-import Actions from '../../actions';
-import * as types from '../../constants/ActionTypes'
+// import Actions from '../../actions';
+// import * as types from '../../constants/ActionTypes'
 
-import storySaga, { syncStoriesSaga } from './storySaga';
+import storySaga from './storySaga';
 
 export default [
   ...storySaga,
