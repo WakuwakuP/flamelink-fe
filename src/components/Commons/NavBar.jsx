@@ -25,7 +25,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <div>
-        <AppBar position="static">
+        <AppBar position="fixed">
           <Toolbar>
             <Typography variant="h6" className={useStyle.title}>
               <NavLink

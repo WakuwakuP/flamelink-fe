@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import Actions from '../../actions';
-import ReactMarkdown from 'react-markdown';
+
+import Markdown from "../Commons/Markdown";
+
 import './storyPage.css';
 
 import { Container } from '@material-ui/core';
@@ -61,7 +63,9 @@ class storyPage extends React.Component {
           }
           {
             this.props.story.content !== '' ?
-              <ReactMarkdown source={this.props.story.content} /> :
+              <Markdown
+                source={this.props.story.content}
+              /> :
               ''
           }
         </Container>

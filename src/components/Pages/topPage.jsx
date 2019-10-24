@@ -11,6 +11,7 @@ class topPage extends React.Component {
   // }
   // componentの初期化時
   componentDidMount() {
+    this.height = window.innerHeight;
   }
 
   // componentを離れる時

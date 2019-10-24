@@ -26,11 +26,15 @@ class App extends Component {
         <div>
           <NavBar />
         </div>
+        <div style={{
+          marginTop: '3.5rem',
+        }}>
         <Switch>
           <Route exact path='/' component={topPage} />
           <Route exact path='/story/:year/:month/:day/:id' component={storyPage} />
           <Route exact component={topPage} />
         </Switch>
+        </div>
       </BrowserRouter>
     );
   }
