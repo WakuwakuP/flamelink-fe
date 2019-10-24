@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import Actions from '../../actions';
 import { When } from 'react-display-switch';
-import Story from '../Commons/Story';
 
+import Story from '../Commons/Story';
+import ScrollToTopOnMount from '../Commons/ScrollToTopOnMount';
 class topPage extends React.Component {
   // constructor(props) {
   //   super(props);
@@ -30,6 +31,7 @@ class topPage extends React.Component {
           }
         }
       >
+        <ScrollToTopOnMount />
         <When screen_xs>
           {
             this.props.sortedStories.map(

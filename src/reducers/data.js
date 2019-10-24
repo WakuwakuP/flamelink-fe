@@ -19,23 +19,9 @@ const initialState = {
       },
     ],
   },
-  storyId: undefined,
-};
-
-const notfoundStory = {
-  title: 'Not Found.',
-  content: '',
-  author: {
-    displayName: '',
-  },
-  category: {
-    name: '',
-  },
-  thumbnail: [
-    {
-      url: ''
-    },
-  ],
+  nextStory: null,
+  prevStory: null,
+  storyId: '',
 };
 
 /**
@@ -49,7 +35,6 @@ export default function data(state = initialState, action) {
       return {
         ...state,
         stories: action.payload.stories,
-        story: state.storyId !== undefined ? action.payload.stories[state.storyId] || notfoundStory : initialState.story,
       }
     case types.DATA.SET_SORTED_STORIES:
       return {
@@ -61,6 +46,16 @@ export default function data(state = initialState, action) {
         ...state,
         story: state.stories[action.payload.storyId] || initialState.story,
         storyId: action.payload.storyId,
+      }
+    case types.DATA.SET_NEXT_STORY:
+      return {
+        ...state,
+        nextStory: action.payload.nextStory,
+      }
+    case types.DATA.SET_PREV_STORY:
+      return {
+        ...state,
+        prevStory: action.payload.prevStory,
       }
     default:
       return state;

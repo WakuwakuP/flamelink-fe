@@ -3,7 +3,10 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import Actions from '../../actions';
 
-import Markdown from "../Commons/Markdown";
+import Markdown from '../Commons/Markdown';
+import ScrollToTopOnMount from '../Commons/ScrollToTopOnMount';
+import ScrollToTopOnUpdate from '../Commons/ScrollToTopOnUpdate';
+import StoryFooter from '../Commons/StoryFooter';
 
 import './storyPage.css';
 
@@ -17,7 +20,11 @@ class storyPage extends React.Component {
   }
   // NotFoundのURLを設定
   componentDidMount() {
-    this.props.actions.setStory(this.props.match.params.id);
+    this.props.actions.setStorySaga(this.props.match.params.id);
+  }
+
+  componentWillUpdate() {
+    this.props.actions.setStorySaga(this.props.match.params.id);
   }
 
   // 前のURLに戻す
@@ -27,6 +34,8 @@ class storyPage extends React.Component {
   render() {
     return (
       <div>
+        <ScrollToTopOnMount />
+        <ScrollToTopOnUpdate />
         <Container fixed>
           {
             this.props.story.thumbnail[0].url !== '' ?
@@ -69,6 +78,7 @@ class storyPage extends React.Component {
               ''
           }
         </Container>
+        <StoryFooter />
       </div>
 
     );

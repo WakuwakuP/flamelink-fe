@@ -22,7 +22,6 @@ class Story extends React.Component {
   }
 
   handleToStoryPage = () => {
-    this.props.actions.setStory(this.state.story.id);
     this.props.history.push(`/story/${this.state.yaer}/${this.state.month}/${this.state.day}/${this.state.story.id}`)
   }
   // componentの初期化時

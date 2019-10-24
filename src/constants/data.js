@@ -4,6 +4,11 @@ export const SET_STORIES = 'SET_STORIES';
 export const SET_SORTED_STORIES = 'SET_SORTED_STORIES';
 
 export const SET_STORY = 'SET_STORY';
+export const SET_STORY_SAGA = 'SET_STORY_SAGA';
+export const SET_NEXT_STORY = 'SET_NEXT_STORY';
+export const SET_NEXT_STORY_SAGA = 'SET_NEXT_STORY_SAGA';
+export const SET_PREV_STORY = 'SET_PREV_STORY';
+export const SET_PREV_STORY_SAGA = 'SET_PREV_STORY_SAGA';
 
 export const GET_CATEGORIES = 'GET_CATEGORIES';
 export const SET_CATEGORIES = 'SET_CATEGORIES';

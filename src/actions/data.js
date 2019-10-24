@@ -26,6 +26,15 @@ function getStories() {
   }
 }
 
+function setStorySaga(storyId) {
+  return {
+    type: types.DATA.SET_STORY_SAGA,
+    payload: {
+      storyId,
+    },
+  }
+}
+
 // 表示するストーリーをセットする。
 function setStory(storyId) {
   return {
@@ -36,9 +45,51 @@ function setStory(storyId) {
   }
 }
 
+
+function setNextStorySaga() {
+  return {
+    type: types.DATA.SET_NEXT_STORY_SAGA,
+    payload: {
+    },
+  }
+}
+
+// 一つ新しいストーリーをセットする
+function setNextStory(nextStory) {
+  return {
+    type: types.DATA.SET_NEXT_STORY,
+    payload: {
+      nextStory,
+    },
+  }
+}
+
+function setPrevStorySaga() {
+  return {
+    type: types.DATA.SET_PREV_STORY_SAGA,
+    payload: {
+    },
+  }
+}
+
+// 1つ古いストーリーをセットする
+function setPrevStory(prevStory) {
+  return {
+    type: types.DATA.SET_PREV_STORY,
+    payload: {
+      prevStory,
+    },
+  }
+}
+
 export default {
   getStories,
   setSortedStories,
   setStories,
   setStory,
+  setStorySaga,
+  setNextStory,
+  setNextStorySaga,
+  setPrevStory,
+  setPrevStorySaga,
 }

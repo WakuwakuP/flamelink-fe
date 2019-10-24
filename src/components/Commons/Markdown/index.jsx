@@ -12,14 +12,13 @@ class Markdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      source: this.props.source,
     };
   }
 
   render() {
     return (
       <ReactMarkdown
-        source={this.state.source}
+        source={this.props.source}
         escapeHtml={false}
         renderers={{ code: CodeBlock, image: ImageBlock, html: HtmlBlock }}
       />
@@ -29,6 +28,7 @@ class Markdown extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    source: state.data.story.content
   };
 };
 
