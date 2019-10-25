@@ -1,10 +1,10 @@
 import { flamelinkApp } from "../../firebase";
 import { all, put, takeEvery, select } from "@redux-saga/core/effects";
 
+
 import { getStoryId, getSortedStories } from '../selector';
 import Actions from '../../actions';
 import * as types from '../../constants/ActionTypes';
-
 
 function* getStoriesSaga() {
   const stories = yield flamelinkApp.content.get({
@@ -20,15 +20,38 @@ function* getStoriesSaga() {
     ],
   });
 
-  const sortedStories = Object.keys(stories)
-    .map(key => stories[key])
+  const serializeStories = {};
+  Object.keys(stories).forEach(key => {
+    serializeStories[key] = {
+      id: stories[key].id,
+      title: stories[key].title,
+      date: stories[key].date,
+      content: stories[key].content,
+      thumbnail: [
+        {
+          url: stories[key].thumbnail[0].url,
+        },
+      ],
+      author: {
+        displayName: stories[key].author.displayName,
+      },
+      category: stories[key].category.name || stories[key].category.map(data => ({ name: data.name })),
+    }
+  });
+
+
+  const sortedStories = Object.keys(serializeStories)
+    .map(key => serializeStories[key])
     .sort((a, b) => {
       const a_date = new Date(a.date);
       const b_date = new Date(b.date);
       return a_date < b_date ? 1 : -1;
     });
-  yield put(Actions.setSortedStories(sortedStories));
 
+  yield localStorage.setItem('stories', JSON.stringify(serializeStories));
+  yield localStorage.setItem('sortedStories', JSON.stringify(sortedStories));
+
+  yield put(Actions.setSortedStories(sortedStories));
 
   yield put(Actions.setStories(stories));
   const storyId = yield select(getStoryId);

@@ -1,0 +1,12 @@
+{
+  "short_name": "WakuwakuP Blog",
+  "name": "WakuwakuP Blog",
+  "display": "standalone",
+  "start_url": ".",
+  "prefer_related_applications": false,
+  "orientation": "portrait",
+  "description": "WakuwakuP Blog App!",
+  "background_color": "#f5f5f5",
+  "theme_color": "#f37046",
+  "lang": "ja-JP"
+}

@@ -1,0 +1,10 @@
+var firebaseConfig = {
+  apiKey: "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+  authDomain: "a.firebaseapp.com",
+  databaseURL: "https://a.firebaseio.com",
+  projectId: "a",
+  storageBucket: "a.appspot.com",
+  messagingSenderId: "1111111"
+};
+
+module.exports = firebaseConfig;

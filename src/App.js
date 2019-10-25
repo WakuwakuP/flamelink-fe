@@ -7,6 +7,7 @@ import { When } from 'react-display-switch';
 import { firebaseApp } from './firebase/index'; // eslint-disable-line no-unused-vars
 import './App.css';
 
+import StoreInitialize from './components/Commons/StoreInitialize';
 import NavBar from './components/Commons/NavBar';
 import topPage from './components/Pages/topPage';
 import storyPage from './components/Pages/storyPage';
@@ -23,17 +24,18 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
+        <StoreInitialize />
         <div>
           <NavBar />
         </div>
         <div style={{
           marginTop: '3.5rem',
         }}>
-        <Switch>
-          <Route exact path='/' component={topPage} />
-          <Route exact path='/story/:year/:month/:day/:id' component={storyPage} />
-          <Route exact component={topPage} />
-        </Switch>
+          <Switch>
+            <Route exact path='/' component={topPage} />
+            <Route exact path='/story/:year/:month/:day/:id' component={storyPage} />
+            <Route exact component={topPage} />
+          </Switch>
         </div>
       </BrowserRouter>
     );
